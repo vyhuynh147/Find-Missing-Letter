@@ -7,18 +7,12 @@ os.system('cls||clear')
 print(" Welcome to find missing word!!")
 print(" Let's try to do some sentences for practingg!!!")
 
-#ask the user what level they want to play(easy, medium , hard)
-level_play = input(" What level do you want to try?")
 
-
+#Easy part
 # make lists the words for each level: Easy, Medium, Hard
 E_words = ["chopsticks", "sat", "eating","lost","everyday","tricks","come","programmer","fishing","crescent"]
 
-M_words = ["docked","managed","passionate","barn","discuss","should","fascinating","afraid","mentioning","umbrella"] 
-
-H_words = ["untangling","ambiguous","meticulous","reluctant","comprehensive","resilient","groundbreaking","arrogant","intricate","profound"]
-
-# make lists the sentences for each level
+# make a list for easy sentences.
 E_sentences = ["He eats rice with __________.",
                "The cat ___ in the chair.",
                "She was ______ and talking.",
@@ -30,30 +24,8 @@ E_sentences = ["He eats rice with __________.",
                "We went _______ after school.",
                "The moon looks like a ________."]
 
-M_sentences = ["If he was late again, he would be ______ a day's pay.",
-               "Even though she was late, she still _______ to finish her work.",
-               "While I am a __________ basketball fan, but I prefer soccer.",
-               "The horse raced past the ____.",
-               "Let's schedule a meeting to _______ the project details.",
-               "It was nice to talking to you; we ______ do this again.",
-               "The teacher, who is known for being strict, gave a ___________ lecture.",
-               "I'm ______ I cannot attend the meeting on Friday.",
-               "Speak of the devil, we were just __________ your recent promotion.",
-               "It's going to rain this afternoon, so we should bring an ________."]
-
-H_sentences = ["The electrical wires require a lot of __________.",
-               "The politician's speech was full of _________ statements that confused the audience.",
-               "Her __________ attention to detail made the project nearly perfect.",
-               "His _________ agreement showed that he wasn't fully convinced.",
-               "The teacher gave a _____________ explanation of the complex topic.",
-               "She was known for her _________ attitude, never giving up despite challenges.",
-               "The scientist made a ______________ discovery that changed modern medicine.",
-               "His ________ behavior made it difficult for others to work with him.",
-               "The instructions were so _________ that many people struggled to follow them.",
-               "The novel presents a ________ message about life and human nature."]
-
-#make the dictionary of words for each level
-sentences_Ewords = {
+# make a dictionary for the answer
+E_answers = {
     E_sentences[0]:"chopsticks",
     E_sentences[1]:"sat",
     E_sentences[2]:"eating",
@@ -66,8 +38,21 @@ sentences_Ewords = {
     E_sentences[9]:"crescent"
     }
 
+# Medium part
+M_words = ["docked","managed","passionate","barn","discuss","should","fascinating","afraid","mentioning","umbrella"] 
 
-sentences_Mwords = {
+M_sentences = ["If he was late again, he would be ______ a day's pay.",
+               "Even though she was late, she still _______ to finish her work.",
+               "While I am a __________ basketball fan, but I prefer soccer.",
+               "The horse raced past the ____.",
+               "Let's schedule a meeting to _______ the project details.",
+               "It was nice to talking to you; we ______ do this again.",
+               "The teacher, who is known for being strict, gave a ___________ lecture.",
+               "I'm ______ I cannot attend the meeting on Friday.",
+               "Speak of the devil, we were just __________ your recent promotion.",
+               "It's going to rain this afternoon, so we should bring an ________."]
+
+M_answers = {
     M_sentences[0]:"docked",
     M_sentences[1]:"managed",
     M_sentences[2]:"passionate",
@@ -80,7 +65,22 @@ sentences_Mwords = {
     M_sentences[9]:"umbrella"
 }
 
-sentences_Hwords = {
+
+# hard part
+H_words = ["untangling","ambiguous","meticulous","reluctant","comprehensive","resilient","groundbreaking","arrogant","intricate","profound"]
+
+H_sentences = ["The electrical wires require a lot of __________.",
+               "The politician's speech was full of _________ statements that confused the audience.",
+               "Her __________ attention to detail made the project nearly perfect.",
+               "His _________ agreement showed that he wasn't fully convinced.",
+               "The teacher gave a _____________ explanation of the complex topic.",
+               "She was known for her _________ attitude, never giving up despite challenges.",
+               "The scientist made a ______________ discovery that changed modern medicine.",
+               "His ________ behavior made it difficult for others to work with him.",
+               "The instructions were so _________ that many people struggled to follow them.",
+               "The novel presents a ________ message about life and human nature."]
+
+H_answers = {
     H_sentences[0]:"untangling",
     H_sentences[1]:"ambiguous",
     H_sentences[2]:"meticulous",
@@ -93,5 +93,21 @@ sentences_Hwords = {
     H_sentences[9]:"profound",
 }
 
-# use function and loop for each level
-def play_game()
+# use function
+def play_game():
+    level = input(" Choose level you want to play(easy, medium, hard): ").lower().strip()
+    if level == "easy":
+        sentences = E_sentences
+        answers = E_answers
+        words = E_words
+    elif level == "medium":
+        sentences = M_sentences
+        answers = M_answers
+        words = M_words
+    elif level == "hard":
+        sentences = H_sentences
+        answers = H_answers
+        words = H_words
+    else: 
+        print("level")
+        return
