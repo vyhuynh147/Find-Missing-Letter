@@ -1,6 +1,7 @@
 # import module
 import os
 import random
+import time
 os.system('cls||clear')
 
 # print welcome
@@ -96,28 +97,29 @@ H_answers = {
 # Use function to select the level
 def play_game():
     while True: 
-        level = input("(easy, medium, hard) Let's choose level you want to select: ").strip().lower()
 
-        if level == "easy":
-            words = E_words
-            sentences = E_sentences
-            answers = E_answers
-            break
+        while True:
+            level = input("(easy, medium, hard) Let's choose level you want to select: ").strip().lower()
 
-        elif level == "medium":
-            words = M_words
-            sentences = M_sentences
-            answers = M_answers
-            break
+            if level == "easy":
+                words = E_words
+                sentences = E_sentences
+                answers = E_answers
+                break
 
-        elif level == "hard":
-            words = H_words
-            sentences = H_sentences
-            answers = H_answers
-            break 
+            elif level == "medium":
+                words = M_words
+                sentences = M_sentences
+                answers = M_answers
+                break
+
+            elif level == "hard":
+                words = H_words
+                sentences = H_sentences
+                answers = H_answers
+                break 
 
 # loop to run the game 
-    while True: 
         sentence = random.choice(sentences)
         correct = answers[sentence]
 
@@ -129,15 +131,20 @@ def play_game():
 
         if user == correct:
             print(" Yes, you got it.")
+            time.sleep(2.5)
+            os.system('cls|| clear')
         else:
             print(" You wrong, but it's okay!")
             print("Correct answer was ", correct)
+            time.sleep(2.5)
+            os.system('cls|| clear')
+            
 # ask the user want to play again
         more = input("Do you want another sentence?").strip().lower()
         if more != "yes":
             print(" Thank you for play find missing the words.")
             break 
-
+play_game()
 
 
 
