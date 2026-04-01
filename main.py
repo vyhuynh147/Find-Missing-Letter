@@ -123,26 +123,26 @@ def play_game():
         sentence = random.choice(sentences)
         correct = answers[sentence]
 
-        print("Word list:", words)
+        print("Word list:",words)
         print("\nHere is the sentence: ")
         print(sentence)
 
         user = input("Fill the blank of the answer: ").strip().lower()
 
         if user == correct:
-            print(" Yes, you got it.")
-            time.sleep(2.5)
+            print("Yes, you got it.")
+            time.sleep(1.5)
             os.system('cls|| clear')
         else:
             print(" You wrong, but it's okay!")
-            print("Correct answer was ", correct)
-            time.sleep(2.5)
+            print("Correct answer was", correct)
+            time.sleep(1.5)
             os.system('cls|| clear')
             
 # ask the user want to play again
         more = input("Do you want another sentence?").strip().lower()
         if more != "yes":
-            print(" Thank you for play find missing the words.")
+            print("Thank you for play find missing the words.")
             break 
 play_game()
 
