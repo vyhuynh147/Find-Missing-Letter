@@ -95,45 +95,50 @@ H_answers = {
 
 # Use function to select the level
 def play_game():
-    level = input("(easy, medium, hard) Let's choose level you want to select: ").strip().lower()
+    while True: 
+        level = input("(easy, medium, hard) Let's choose level you want to select: ").strip().lower()
 
-    if level == "easy":
-        words = E_words
-        sentences = E_sentences
-        answers = E_answers
-    elif level == "medium":
-        words = M_words
-        sentences = M_sentences
-        answers = M_answers
-    elif level == "hard":
-        words = H_words
-        sentences = H_sentences
-        answers = H_answers
+        if level == "easy":
+            words = E_words
+            sentences = E_sentences
+            answers = E_answers
+            break
 
-# use loop to repeat the game
-    while True:
+        elif level == "medium":
+            words = M_words
+            sentences = M_sentences
+            answers = M_answers
+            break
+
+        elif level == "hard":
+            words = H_words
+            sentences = H_sentences
+            answers = H_answers
+            break 
+
+# loop to run the game 
+    while True: 
         sentence = random.choice(sentences)
-        answers = sentences[sentence]
+        correct = answers[sentence]
 
         print("Word list:", words)
-        print("\n Here is the sentence: ")
+        print("\nHere is the sentence: ")
         print(sentence)
 
-        user = input(" Fill the blank the answer: ")
+        user = input("Fill the blank of the answer: ").strip().lower()
 
-        if user == (answers):
-            print(" You got it right! Congratulation.")
+        if user == correct:
+            print(" Yes, you got it.")
         else:
-            print(" You wrong!")
-            print(" The correct answer was", answers)
-
-
-            more = input("Do you want another sentence?").strip().lower()
+            print(" You wrong, but it's okay!")
+            print("Correct answer was ", correct)
+# ask the user want to play again
+        more = input("Do you want another sentence?").strip().lower()
         if more != "yes":
-            print(" Thank you to playing missing the word")
+            print(" Thank you for play find missing the words.")
+            break 
 
-        break
-play_game()
+
 
 
 
