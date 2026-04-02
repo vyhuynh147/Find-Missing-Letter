@@ -96,7 +96,7 @@ H_answers = {
 
 # Use function to run the game
 def play_game():
-# loop to run the game 
+# loop to run the whole game 
     while True: 
         # loop for select level
         while True:
