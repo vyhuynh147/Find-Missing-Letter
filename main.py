@@ -94,10 +94,11 @@ H_answers = {
     H_sentences[9]:"profound",
 }
 
-# Use function to select the level
+# Use function to run the game
 def play_game():
+# loop to run the game 
     while True: 
-
+        # loop for select level
         while True:
             level = input("(easy, medium, hard) Let's choose level you want to select: ").strip().lower()
 
@@ -119,7 +120,6 @@ def play_game():
                 answers = H_answers
                 break 
 
-# loop to run the game 
         sentence = random.choice(sentences)
         correct = answers[sentence]
 
@@ -138,9 +138,9 @@ def play_game():
             print("Correct answer was", correct)
             time.sleep(1.5)
             os.system('cls|| clear')
-            
+
 # ask the user want to play again
-        more = input("Do you want another sentence?").strip().lower()
+        more = input("Do you want another sentence?(yes/no): ").strip().lower()
         if more != "yes":
             print("Thank you for play find missing the words.")
             break 
