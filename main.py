@@ -5,8 +5,8 @@ import time
 os.system('cls||clear')
 
 # print welcome
-print(" Welcome to find missing word!!")
-print(" Let's try to do some sentences for practingg!!!")
+print(" Welcome to Find Missing Word!!")
+print(" Let's try to do some sentences for practing!")
 
 
 #Easy part
@@ -119,6 +119,8 @@ def play_game():
                 sentences = H_sentences
                 answers = H_answers
                 break 
+            else:
+                print(" Invalid level!")
 
         sentence = random.choice(sentences)
         correct = answers[sentence]
@@ -128,21 +130,23 @@ def play_game():
         print(sentence)
 
         user = input("Fill the blank of the answer: ").strip().lower()
-
+        score = 0
         if user == correct:
+            score+=1
+            print(" You score is",score)
             print("Yes, you got it.")
             time.sleep(1.5)
-            os.system('cls|| clear')
+            os.system('cls||clear')
         else:
-            print(" You wrong, but it's okay!")
+            print(" You're wrong, but it's okay!")
             print("Correct answer was", correct)
             time.sleep(1.5)
-            os.system('cls|| clear')
+            os.system('cls||clear')
 
 # ask the user want to play again
         more = input("Do you want another sentence?(yes/no): ").strip().lower()
         if more != "yes":
-            print("Thank you for play find missing the words.")
+            print("Thanks you for play find missing the words.")
             break 
 play_game()
 
