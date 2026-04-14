@@ -1,19 +1,14 @@
-# import module
 import os
 import random
 import time
 os.system('cls||clear')
 
-# print welcome
-print(" Welcome to Find Missing Word!!")
-print(" Let's try to do some sentences for practing!")
+print("Welcome to Find Missing Word!!")
+print("Let's try to do some sentences for practicing!")
 
 
-#Easy part
-# make lists the words for each level: Easy, Medium, Hard
 E_words = ["chopsticks", "sat", "eating","lost","everyday","tricks","come","programmer","fishing","crescent"]
 
-# make a list for easy sentences.
 E_sentences = ["He eats rice with __________.",
                "The cat ___ in the chair.",
                "She was ______ and talking.",
@@ -25,7 +20,6 @@ E_sentences = ["He eats rice with __________.",
                "We went _______ after school.",
                "The moon looks like a ________."]
 
-# make a dictionary for the answer
 E_answers = {
     E_sentences[0]:"chopsticks",
     E_sentences[1]:"sat",
@@ -39,7 +33,6 @@ E_answers = {
     E_sentences[9]:"crescent"
     }
 
-# Medium part
 M_words = ["docked","managed","passionate","barn","discuss","should","fascinating","afraid","mentioning","umbrella"] 
 
 M_sentences = ["If he was late again, he would be ______ a day's pay.",
@@ -67,7 +60,6 @@ M_answers = {
 }
 
 
-# hard part
 H_words = ["untangling","ambiguous","meticulous","reluctant","comprehensive","resilient","groundbreaking","arrogant","intricate","profound"]
 
 H_sentences = ["The electrical wires require a lot of __________.",
@@ -94,12 +86,9 @@ H_answers = {
     H_sentences[9]:"profound",
 }
 
-# Use function to run the game
 def play_game(level):
-# loop to run the whole game 
-    score =0
+    score = 0
     while True: 
-        # loop for select level
         while True:
             if level == "easy":
                 words = E_words
@@ -119,34 +108,34 @@ def play_game(level):
                 answers = H_answers
                 break 
             else:
-                print(" Invalid level!")
+                print("Invalid level!")
 
         sentence = random.choice(sentences)
         correct = answers[sentence]
 
-        print("Word list:",words)
+        print("Word list: ", words)
         print("\nHere is the sentence: ")
         print(sentence)
 
-        user = input("Fill the blank of the answer: ").strip().lower()
+        user = input("Fill in the blank of the answer: ").strip().lower()
         if user == correct:
-            score+=1
-            print(" Your score is:",score)
-            print("Yes, you got it.")
-            time.sleep(1.5)
+            score += 1
+            print("Your score is: ", score)
+            print("Yes, you got it!")
+            time.sleep(3)
             os.system('cls||clear')
         else:
-            score-=1
-            print(" Your score is:",score)
-            print(" You're wrong, but it's okay!")
-            print("Correct answer was", correct)
-            time.sleep(1.5)
+            score -= 1
+            print("Your score is: ", score)
+            print("You're wrong, but it's okay!")
+            print("Correct answer was ", correct)
+            time.sleep(3)
             os.system('cls||clear')
 
-# ask the user want to play again
-        more = input("Do you want another sentence?(yes/no): ").strip().lower()
+        more = input("Do you want another sentence? (yes/no): ").strip().lower()
         if more != "yes":
-            print("Thanks you for play find missing the words.")
+            print("Thank you for playing Find Missing Words.")
             break 
+
 level = input("(easy, medium, hard) Let's choose level you want to select: ").strip().lower()
-play_game(level)
+play_game(level)     
