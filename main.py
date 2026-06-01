@@ -6,6 +6,11 @@ os.system('cls||clear')
 
 # print welcome
 print(" Welcome to Find Missing Word!!")
+
+# ask the user name
+user_name = input(" What is your name? ")
+
+enter = input(" Enter your name here: ")
 print(" Let's try to do some sentences for practing!")
 
 
