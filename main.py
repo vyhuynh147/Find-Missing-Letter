@@ -150,15 +150,20 @@ def play_game(level):
         if user == correct:
             score+=1
             streak +=1
+            print("Yes, you got it.")
             print(" Your score is:",score)
             print(" Your streak is:", streak)
-            print("Yes, you got it.")
             time.sleep(1.5)
             os.system('cls||clear')
         else:
             score-=1 
             attempts -=1
             streak -=1
+        if attempts ==0:
+            streak=0
+        elif score == 0 and streak == 0:
+            score =0
+            streak = 0
             print(" Your score is:",score)
             print(" Your streak is:", streak)
             print(" You're wrong, but it's okay!")
