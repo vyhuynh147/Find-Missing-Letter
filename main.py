@@ -150,35 +150,43 @@ def play_game(level):
         if user == correct:
             score+=1
             streak +=1
+            attempts = 0
             print("Yes, you got it.")
             print(" Your score is:",score)
             print(" Your streak is:", streak)
-            time.sleep(1.5)
-            os.system('cls||clear')
+            # # time.sleep(1.5)
+            # os.system('cls||clear')
         else:
             score-=1 
-            attempts -=1
-            streak -=1
-        if attempts ==0:
-            streak=0
-        elif score == 0 and streak == 0:
-            score =0
-            streak = 0
-            print(" Your score is:",score)
-            print(" Your streak is:", streak)
-            print(" You're wrong, but it's okay!")
-            print("Correct answer was", correct)
-            time.sleep(1.5)
-            os.system('cls||clear')
-
-        if attempts == 0:
             streak =0
-            print(" You got it wrong! Your streak has been resetted.")
+            attempts +=1
+        
+            # print(" Your score is:",score)
+            # print(" Your streak is:", streak)
+            print(" You're wrong, but it's okay!")
+            # print("Correct answer was", correct)
+            # time.sleep(1.5)
+            # os.system('cls||clear')
 
         use_hint = input(" Do you want to use a hint? (yes/ no ): ").strip().lower()
         
         if use_hint == "yes":
-            print("Hint: The words starts with",correct[0] )
+                print("Hint: The words starts with",correct[0] )
+
+        user = input(" Let's try again: ").strip().lower()
+
+        if user == correct:
+            score +=1
+            streak +=1
+            attempts =0
+            print(" Yes, you got it right this time!!!")
+        else:
+            print(" Oh no, still wrong.")
+
+        if attempts >= max_attempts:
+            streak =0
+            attempts = 0
+            print(" You got it wrong! Your streak has been resetted.")
 
         print("Your current score is:", score)
         print(" Your current streak is:", streak)
