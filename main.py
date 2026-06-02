@@ -5,12 +5,21 @@ import time
 os.system('cls||clear')
 
 # print welcome
-print(" Welcome to Find Missing Word!!")
+print(" \nWelcome to Find Missing Word!!")
+print(" Your goal is to find missing the word in each sentence. ")
+print(" Choose the correct word in the list.")
+print(" When playing the game you will be able to have a streak and you will recevie hints.")
+print(" Have fun practicing!!! ")
 
 # ask the user name
-user_name = input(" What is your name? ")
+user_name = input(" What is your name? \n Enter your name: ")
 
-enter = input(" Enter your name here: ")
+
+ready = input(f"{user_name}, are you ready for pratice? (y/n): ").strip().lower()
+
+if ready != "y":
+    print("Okay! see you next time!")
+
 print(" Let's try to do some sentences for practing!")
 
 
@@ -102,7 +111,11 @@ H_answers = {
 # Use function to run the game
 def play_game(level):
 # loop to run the whole game 
-    score =0
+    score = 0
+    streak = 0
+    max_attempts =3
+    attempts = 0
+
     while True: 
         # loop for select level
         while True:
@@ -136,17 +149,35 @@ def play_game(level):
         user = input("Fill the blank of the answer: ").strip().lower()
         if user == correct:
             score+=1
+            streak +=1
             print(" Your score is:",score)
+            print(" Your streak is:", streak)
             print("Yes, you got it.")
             time.sleep(1.5)
             os.system('cls||clear')
         else:
-            score-=1
+            score-=1 
+            attempts -=1
+            streak -=1
             print(" Your score is:",score)
+            print(" Your streak is:", streak)
             print(" You're wrong, but it's okay!")
             print("Correct answer was", correct)
             time.sleep(1.5)
             os.system('cls||clear')
+
+        if attempts == 0:
+            streak =0
+            print(" You got it wrong! Your streak has been resetted.")
+
+        use_hint = input(" Do you want to use a hint? (yes/ no ): ").strip().lower()
+        
+        if use_hint == "yes":
+            print("Hint: The words starts with",correct[0] )
+
+        print("Your current score is:", score)
+        print(" Your current streak is:", streak)
+
 
 # ask the user want to play again
         more = input("Do you want another sentence?(yes/no): ").strip().lower()
