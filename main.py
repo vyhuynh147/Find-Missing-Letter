@@ -117,7 +117,6 @@ def play_game(level):
     streak = 0
     max_attempts = 2
     attempts = 0
-    use_hint = False
 
     while True: 
         # loop for select level
@@ -150,6 +149,7 @@ def play_game(level):
         print(sentence)
 
         user = input("Fill the blank of the answer: ").strip().lower()
+
         if user == correct:
             score += 1
             streak += 1
@@ -162,11 +162,9 @@ def play_game(level):
             # os.system('cls||clear')
         else:
             score -= 1 
-            streak = 0
             attempts += 1
-        
-            # print(" Your score is:",score)
-            # print(" Your streak is:", streak)
+            streak = 0
+            
             print(" You're wrong, but it's okay!")
             # print("Correct answer was", correct)
             # time.sleep(1.5)
@@ -174,43 +172,35 @@ def play_game(level):
 
 
         # ask the user for hints. 
-        # use_hint = input("Do you want to use a hint? (yes/ no ): ").strip().lower()
+            use_hint = input("Do you want to use a hint? (yes/ no ): ").strip().lower()
         
-        # if use_hint == "yes":
-        #         print("Hint: The words starts with",correct[0] )
-        #         use_hint = True
+            if use_hint == "yes":
+                print("Hint: The words starts with",correct[0] )
 
-        # user = input(" Let's try again: ").strip().lower()
+                user = input(" Let's try again: ").strip().lower()
 
 
 
         #second chance if they get right
-        if user == correct:
-            score +=1
-            streak +=1
-            attempts =0
-            print(" Yes, you got it right this time!!!")
-        else:
-            print(" Oh no, still wrong.")
-
-        
-            if not use_hint:
-                hint = input("Do you want to use a hint? (yes/ no ): ").strip().lower()
-                if hint == "yes":
-                    print("Hint: The words starts with",correct[0] )
-                    use_hint = True
-
-        user = input(" Let's try again: ").strip().lower()
-
-        if attempts < max_attempts:
-            streak = 0
-            attempts = 0
-            print(" You got it wrong! Your streak has been resetted.")
+                if user == correct:
+                    score +=1
+                    streak +=1
+                    attempts =0
+                    print(" Yes, you got it right this time!!!")
+                else:
+                    attempts +=1
+                print(" Oh no, still wrong.")
             
-        # print/show the answer
+        # show the answer if final answer is wrong
         if user != correct:
             print("\n The correct answer was", correct)
-        
+
+
+        if attempts >= max_attempts:
+            streak = 0
+            attempts = 0
+            print(" You got it wrong! Your streak has been reset.")
+                    
         # print all the current score and streak when they use max attempts. 
         print("\n>> Your current score is:", score)
         print(" >> Your current streak is:", streak)
