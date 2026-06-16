@@ -173,16 +173,13 @@ def play_game(level):
             typing(f" Your score is: {score} ")
             typing(f" Your streak is: {streak}")
 
-            # # time.sleep(1.5)
-            # os.system('cls||clear')
         else:
             score -= 1 
             attempts += 1
             streak = 0
             
             typing(" You're wrong, but it's okay!")
-            # time.sleep(1.5)
-            # os.system('cls||clear')
+
 
 
         # ask the user for hints. 
